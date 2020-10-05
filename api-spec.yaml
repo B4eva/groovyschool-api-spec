@@ -21,3 +21,65 @@ paths:
           description: ok
         '405':
           description: Invalid input
+    
+    /login-request:
+    post:
+      description: A request for login
+      operationId: loginRequest
+      requestBody:
+        content:
+            application/json:
+              schema:
+                $ref: 'schemas/User.yaml'
+      responses:
+        '200':
+          description: ok
+        '405':
+          description: User not found
+
+    /login:
+    post:
+      description: login in a user of our system
+      operationId: login
+      requestBody:
+        content:
+            application/json:
+              schema:
+                $ref: 'schemas/User.yaml'
+      responses:
+        '200':
+          description: Successful login
+        '400':
+          description: Invalid username/password entered
+         
+
+
+    /logut:
+    post:
+      description: Loging out a user from the system
+      operationId: logoutRequest
+      requestBody:
+        content:
+            application/json:
+              schema:
+                $ref: 'schemas/User.yaml'
+      responses:
+        '200':
+          description: Successful logout
+        '405':
+          description: Operation failed
+
+    /reset-password:
+    post:
+      description: A request for resetting a password
+      operationId: reset-passwordRequest
+      requestBody:
+        content:
+            application/json:
+              schema:
+                $ref: 'schemas/User.yaml'
+      responses:
+        '200':
+          description: Successful Reset
+        '405':
+          description: Operation Denied
