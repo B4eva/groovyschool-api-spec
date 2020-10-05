@@ -4,7 +4,13 @@ required:
   - username
   - password
 properties:
-  username:
+  Fist name:
+    description: The Fist name of the user
+    type: string
+  Last name:
+    description: The Last name of the user
+    type: string
+  email address:
     description: The email address of the user
     type: string
     format: email

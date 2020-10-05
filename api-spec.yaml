@@ -21,3 +21,97 @@ paths:
           description: ok
         '405':
           description: Invalid input
+
+  /view-all-users:
+    get:
+      summary: Get all registered Users
+      description: View a list  of all registered users
+      operationId: viewAllUsers  
+      responses:
+        '200':
+          description: List of all users, successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Fistname:
+                    description: The Fistname of the user
+                    type: string
+                  Lastname:
+                    description: The Lastname of the user
+                    type: string
+                  email address:
+                    description: The email address of the user
+                    type: string
+                    format: email
+        '405':
+          description: Invalid request
+
+  /user/{userId}':
+    get:
+      summary: Find user by ID
+      description: Returns a single user
+      operationId: getUserById
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uuid: # the unique user id
+                    type: string
+                    format: uuid
+                  Fistname:
+                    description: The Fistname of the user
+                    type: string
+                  Lastname:
+                    description: The Lastname of the user
+                    type: string
+                  email address:
+                    description: The email address of the user
+                    type: string
+                    format: email
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pet not found
+    
+    post:
+      summary: Updates a User's personal information 
+      description: 'Change the or input registered user personal Infromation'
+      operationId: updateUser
+      requestBody:
+        content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Fist name:
+                    description: Update Fistname of the user
+                    type: string
+                  Last name:
+                    description: Update Lastname of the user
+                    type: string
+                  email address:
+                    description: Update email address of the user
+                    type: string
+                    format: email
+        responses:
+          '200':
+            description: successful operation
+          '405':
+            description: Invalid input
+    
+    delete:
+      summary: Deletes a User
+      description: 'Archive/Disable (delete) a registered user'
+      operationId: deleteUser
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid pet value
+   
