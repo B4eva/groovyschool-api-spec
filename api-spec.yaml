@@ -28,6 +28,11 @@ paths:
 
 
 components: 
+
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
   
   responses:
     500Error:
