@@ -23,8 +23,11 @@ paths:
           description: Invalid input
     
     /login-request:
+    header:
     post:
-      description: A request for login
+      summary: Requests for login
+      security:
+        - OAuth2: [admin]
       operationId: loginRequest
       requestBody:
         content:
@@ -38,6 +41,27 @@ paths:
           description: User not found
 
     /login:
+    
+    {
+      "alg": "HS256",
+      "typ": "JWT"
+    }
+
+    payload:
+      {
+        "sub": "password",
+        "name": "usernamehere",
+        'email': 'email@address.com'
+        "iat": 1516239022
+      }
+
+    signature:
+      HMACSHA256(
+      base64UrlEncode(header) + "." +
+      base64UrlEncode(payload),
+      secret_key
+      ) 
+
     post:
       description: login in a user of our system
       operationId: login
@@ -50,13 +74,26 @@ paths:
         '200':
           description: Successful login
         '400':
-          description: Invalid username/password entered
-         
-
+          description: Invalid username/password entered 
+    get:
+      description: login in a user of our system
+      operationId: login
+      requestBody:
+        content:
+            application/json:
+              schema:
+                $ref: 'schemas/User.yaml'
+      responses:
+        '200':
+          description: Successful login
+        '400':
+          description: Password not found
 
     /logut:
     post:
-      description: Loging out a user from the system
+      description: Log out a user from the system
+      security:
+        - OAuth2: [admin]
       operationId: logoutRequest
       requestBody:
         content:
@@ -72,6 +109,8 @@ paths:
     /reset-password:
     post:
       description: A request for resetting a password
+      security:
+        - OAuth2: [admin]
       operationId: reset-passwordRequest
       requestBody:
         content:
@@ -83,3 +122,20 @@ paths:
           description: Successful Reset
         '405':
           description: Operation Denied
+
+    get:
+      description: A request for resetting a password
+      security:
+        - OAuth2: [admin]
+      operationId: reset-passwordRequest
+      requestBody:
+        content:
+            application/json:
+              schema:
+                $ref: 'schemas/User.yaml'
+      responses:
+        '200':
+          description: Successful Reset
+        '405':
+          description: Reset failed
+
