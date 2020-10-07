@@ -1,13 +1,13 @@
 title: User
 type: object
 required:
-  - username
+  - email address
   - password
 properties:
-  Fist name:
+  Fistname:
     description: The Fist name of the user
     type: string
-  Last name:
+  Lastname:
     description: The Last name of the user
     type: string
   email address:

@@ -22,7 +22,7 @@ paths:
         '405':
           description: Invalid input
 
-  /view-all-users:
+  /users:
     get:
       summary: Get all registered Users
       description: View a list  of all registered users
@@ -33,22 +33,11 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  Fistname:
-                    description: The Fistname of the user
-                    type: string
-                  Lastname:
-                    description: The Lastname of the user
-                    type: string
-                  email address:
-                    description: The email address of the user
-                    type: string
-                    format: email
+                $ref: 'schemas/User.yaml'
         '405':
           description: Invalid request
 
-  /user/{userId}':
+  /users/{userId}':
     get:
       summary: Find user by ID
       description: Returns a single user
@@ -59,21 +48,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  uuid: # the unique user id
-                    type: string
-                    format: uuid
-                  Fistname:
-                    description: The Fistname of the user
-                    type: string
-                  Lastname:
-                    description: The Lastname of the user
-                    type: string
-                  email address:
-                    description: The email address of the user
-                    type: string
-                    format: email
+              $ref: 'schemas/User.yaml'            
         '400':
           description: Invalid ID supplied
         '404':
@@ -87,18 +62,7 @@ paths:
         content:
             application/json:
               schema:
-                type: object
-                properties:
-                  Fist name:
-                    description: Update Fistname of the user
-                    type: string
-                  Last name:
-                    description: Update Lastname of the user
-                    type: string
-                  email address:
-                    description: Update email address of the user
-                    type: string
-                    format: email
+                $ref: 'schemas/User.yaml'
         responses:
           '200':
             description: successful operation
@@ -113,5 +77,5 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: Invalid pet value
+          description: Invalid user value
    
