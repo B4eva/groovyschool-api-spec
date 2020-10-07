@@ -49,7 +49,7 @@ paths:
           {
             "sub": "password",
             "name": "usernamehere",
-            "email": "email@address.com"
+            "email": "email@address.com",
             "iat": 1516239022
           }
       signature:
