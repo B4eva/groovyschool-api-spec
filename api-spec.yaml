@@ -20,6 +20,7 @@ paths:
         '200':
           description: ok
         '405':
+
           description: Invalid input
     
     /login-request:    
@@ -134,4 +135,57 @@ paths:
             description: Successful Reset
           '405':
             description: Reset failed
+
+
+          $ref: "#components/responses/405Error"
+
+
+
+
+
+
+components: 
+
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+  
+  responses:
+    500Error:
+      description: "Internal Server Error, This is the default code that is used for all server errors"
+      content:
+        application/json:
+          schema: {}
+           
+    400Error:
+      description: "The request wrongly formulated. For example when a required property is missing in the request body"
+      content:
+        application/json:
+          schema: {}
+           
+    401Error:
+      description: "The request has not been applied because it lacks valid authentication credentials for the target resource."
+      content:
+        application/json:
+          schema: {}    
+    403Error:
+      description: "The request was understood but is not authorize."
+      content:
+        application/json:
+          schema: {}
+    404Error:
+      description: "The resource requested was not found."
+      content:
+        application/json:
+          schema: {}
+    405Error: 
+      description: "Invalid input"
+      content:
+        application/json:
+          schema: {}
+              
+    
+      
+     
 
