@@ -20,6 +20,65 @@ paths:
         '200':
           description: ok
         '405':
+          description: Invalid input
+
+  /users:
+    get:
+      summary: Get all registered Users
+      description: View a list  of all registered users
+      operationId: viewAllUsers  
+      responses:
+        '200':
+          description: List of all users, successful operation
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/User.yaml'
+        '405':
+          description: Invalid request
+
+  /users/{userId}':
+    get:
+      summary: Find user by ID
+      description: Returns a single user
+      operationId: getUserById
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/User.yaml'            
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: User not found
+    
+    post:
+      summary: Updates a User's personal information 
+      description: 'Change the or input registered user personal Infromation'
+      operationId: updateUser
+      requestBody:
+        content:
+            application/json:
+              schema:
+                $ref: 'schemas/User.yaml'
+        responses:
+          '200':
+            description: successful operation
+          '405':
+            description: Invalid input
+    
+    delete:
+      summary: Deletes a User
+      description: 'Archive/Disable (delete) a registered user'
+      operationId: deleteUser
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid user value
+   
           $ref: "#components/responses/405Error"
 
 
