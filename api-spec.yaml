@@ -21,6 +21,119 @@ paths:
           description: ok
         '405':
           description: Invalid input
+    
+    /login-request:    
+      post:
+        summary: Requests for login
+        security:
+          - OAuth2: [admin]
+        operationId: loginRequest
+        requestBody:
+          content:
+              application/json:
+                schema:
+                  $ref: 'schemas/User.yaml'
+        responses:
+          '200':
+            description: ok
+          '405':
+            description: User not found
+
+    /login:
+      header:    
+        {
+        "alg": "HS256",
+        "typ": "JWT"
+        }
+      payload:
+          {
+            "sub": "password",
+            "name": "usernamehere",
+            "email": "email@address.com",
+            "iat": 1516239022
+          }
+      signature:
+          HMACSHA256(
+          base64UrlEncode(header) + "." +
+          base64UrlEncode(payload),
+          secret_key
+          ) 
+      post:
+        description: login in a user of our system
+        operationId: login
+        requestBody:
+          content:
+              application/json:
+                schema:
+                  $ref: 'schemas/User.yaml'
+        responses:
+          '200':
+            description: Successful login
+          '400':
+            description: Invalid username/password entered 
+      get:
+        description: login in a user of our system
+        operationId: login
+        requestBody:
+          content:
+              application/json:
+                schema:
+                  $ref: 'schemas/User.yaml'
+        responses:
+          '200':
+            description: Successful login
+          '400':
+            description: Password not found
+
+    /logout:
+      post:
+        description: Log out a user from the system
+        security:
+          - OAuth2: [admin]
+        operationId: logoutRequest
+        requestBody:
+          content:
+              application/json:
+                schema:
+                  $ref: 'schemas/User.yaml'
+        responses:
+          '200':
+            description: Successful logout
+          '405':
+            description: Operation failed
+
+    /reset-password:
+      post:
+        description: A request for resetting a password
+        security:
+          - OAuth2: [admin]
+        operationId: reset-passwordRequest
+        requestBody:
+          content:
+              application/json:
+                schema:
+                  $ref: 'schemas/User.yaml'
+        responses:
+          '200':
+            description: Successful Reset
+          '405':
+            description: Operation Denied
+
+      get:
+        description: A request for resetting a password
+        security:
+          - OAuth2: [admin]
+        operationId: reset-passwordRequest
+        requestBody:
+          content:
+              application/json:
+                schema:
+                  $ref: 'schemas/User.yaml'
+        responses:
+          '200':
+            description: Successful Reset
+          '405':
+            description: Reset failed
 
   /users:
     get:
@@ -78,34 +191,27 @@ paths:
           description: successful operation
         '400':
           description: Invalid user value
-   
-          $ref: "#components/responses/405Error"
-
-
-
-
-
+          content:
+            application/json:
+              schema:
+                $ref: "#components/responses/405Error"
 
 components: 
-
   securitySchemes:
     BasicAuth:
       type: http
       scheme: basic
-  
   responses:
     500Error:
       description: "Internal Server Error, This is the default code that is used for all server errors"
       content:
         application/json:
-          schema: {}
-           
+          schema: {}          
     400Error:
       description: "The request wrongly formulated. For example when a required property is missing in the request body"
       content:
         application/json:
           schema: {}
-           
     401Error:
       description: "The request has not been applied because it lacks valid authentication credentials for the target resource."
       content:
@@ -126,7 +232,3 @@ components:
       content:
         application/json:
           schema: {}
-              
-    
-      
-     
