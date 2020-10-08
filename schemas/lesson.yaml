@@ -1,0 +1,50 @@
+openapi : 3.0.0
+
+info:
+  description: Groovyschool is an online learning platform for technologies in the Groovy ecosystem.
+  version: 1.0.0
+  title: GROOVYSCHOOL API
+
+paths:
+  /Video:
+    get:
+      -video
+    #summary : gets video for the required lesson.
+    description : video for lesson
+    responses :
+        '200': 
+        description: successful operation
+        content :
+              application/json : #media type
+                  schema :
+                  $ref : #'#/components/schemas/video'
+                    links : ##
+
+components:
+  schemas:
+      Video: # Object definition
+      type: object
+      properties:
+        properties:
+        name: string
+        subtitles: string
+        width: interger
+        height: interger
+        
+
+  /Text:
+    get:
+      -text
+      #summary: gets text or lesson notes for the required lesson.
+    description: text for lesson
+    responses:
+      '200': 
+      description: successful operation
+      content:
+            text/plain; charset=utf-8: #media type
+              schema:
+                $ref: #'#/components/schemas/Text'
+                  links: ##
+
+
+      

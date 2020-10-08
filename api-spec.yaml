@@ -16,7 +16,7 @@ paths:
             application/json:
               schema:
                 $ref: 'schemas/User.yaml'
-      responses:
+    responses:
         '200':
           description: ok
         '405':
