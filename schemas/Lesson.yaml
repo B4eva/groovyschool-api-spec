@@ -1,0 +1,19 @@
+title: Lesson
+type: object
+required:
+  - text
+  - quiz
+  - video
+properties:
+  Lessonnote:
+    description: Content of the lesson in text
+    type: string
+  Lessontitle:
+    description: The title of the lesson
+    type: string
+  quiz:
+    description: Test of knowledge on the lesson
+    type: string
+  video:
+    description: Explanatory representation of lesson
+    format: mp4
