@@ -22,7 +22,7 @@ paths:
         '405':
           description: Invalid input
     
-    /login-request:    
+  /login-request:    
       post:
         summary: Requests for login
         security:
@@ -39,25 +39,25 @@ paths:
           '405':
             description: User not found
 
-    /login:
-      header:    
-        {
-        "alg": "HS256",
-        "typ": "JWT"
-        }
-      payload:
-          {
-            "sub": "password",
-            "name": "usernamehere",
-            "email": "email@address.com",
-            "iat": 1516239022
-          }
-      signature:
-          HMACSHA256(
-          base64UrlEncode(header) + "." +
-          base64UrlEncode(payload),
-          secret_key
-          ) 
+  /login:
+      # header:    
+      #   {
+      #   "alg": "HS256",
+      #   "typ": "JWT"
+      #   }
+      # payload:
+      #     {
+      #       "sub": "password",
+      #       "name": "usernamehere",
+      #       "email": "email@address.com",
+      #       "iat": 1516239022
+      #     }
+      # signature:
+      #     HMACSHA256(
+      #     base64UrlEncode(header) + "." +
+      #     base64UrlEncode(payload),
+      #     secret_key
+      #     ) 
       post:
         description: login in a user of our system
         operationId: login
@@ -85,7 +85,7 @@ paths:
           '400':
             description: Password not found
 
-    /logout:
+  /logout:
       post:
         description: Log out a user from the system
         security:
@@ -102,7 +102,7 @@ paths:
           '405':
             description: Operation failed
 
-    /reset-password:
+  /reset-password:
       post:
         description: A request for resetting a password
         security:
@@ -176,7 +176,7 @@ paths:
             application/json:
               schema:
                 $ref: 'schemas/User.yaml'
-        responses:
+      responses:
           '200':
             description: successful operation
           '405':
@@ -193,8 +193,8 @@ paths:
           description: Invalid user value
           content:
             application/json:
-              schema:
-                $ref: "#components/responses/405Error"
+              schema: {}
+                # $ref: "#components/responses/405Error"
 
 components: 
   securitySchemes:
