@@ -1,0 +1,14 @@
+title: Quiz
+type: object
+required:
+  - list of questions
+properties:
+  Question:
+    description: Phrase that demands a correct answer to
+    type: string
+  Answers:
+    description: Group of responses to a question
+    type: string
+  Correct Answer:
+    description: Correct response to a question
+    type: string
