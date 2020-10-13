@@ -1,0 +1,42 @@
+title: Module
+type: object
+required:
+  - title
+  - lessons
+  - instructors
+properties:
+  id:
+    description: The unique identifier of a group of lessons
+    type: string
+    format: UUID
+  summary:
+    description: A brief summary or description of the group of lessons
+    type: string
+  title:
+    description: The title of a group of lessons
+    type: string
+  thumbnail:
+    description: The Url of a lesson thumbnail image
+    type: string
+  objectives:
+    description: The learning goals of a group of lessons
+    type: string
+  instructors: 
+    description: An array which references to instructors
+    type: array
+    items:
+      $ref: "schemas/User.yaml"
+  resources:
+    description: Array of links to external resources for the lessons.
+    type: array
+    items:
+      $ref: "schemas/CourseResource.yaml"
+  comments:
+    description: An array of comments
+    type: array
+    items:
+      $ref: "schemas/Comment.yaml"
+
+
+
+    
