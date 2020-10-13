@@ -1,29 +1,52 @@
 title: Lesson
 type: object
 required:
-  - quiz
-  - video
-  - text
+  - id
+  - title
+  - instructor
 properties:
-  Lessontitle:
+  status:
+    type: string
+    enum:
+      - DRAFT
+      - PUBLISHED 
+      - ARCHIVED
+    default: DRAFT
+  title:
     description: The title of a lesson
     type: string
   quiz:
-    description: Test of knowledge of lesson
-    type: string
+    description: An array of Question.yaml
+    type: array
+    items:
+      $ref: "schemas/Question.yaml"
   video:
     description: Explanatory video of lesson
-    format: mp4
-  lessonnotes:
+    type: string
+  notes:
     description: notes of the lesson  
     type: string
-  videoduration:
+  duration:
     description: The time in seconds/minutes/hours the video will play for.
-    type: interger
-  dateCreated: 
-    descriotion: The date on which the lesson was created.
-    type: interger
-  tutor'sname: 
-    description: The name of the person teaching the lesson
+    type: number
+  datePublished: 
+    description: The date on which the lesson was created.
+    type: date
+  instructors: 
+    description: An array of names of instructors
+    type: array
+    items:
+      $ref: "schemas/User.yaml"
+  resources:
+    description: Array of links to external resources for the lesson.
+    type: array
+  objectives:
+    description: Lesson goals
     type: string
+  comments:
+    description: An array of comments
+    type: array
+
+
+
     
