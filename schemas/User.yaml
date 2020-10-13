@@ -9,13 +9,10 @@ properties:
     description: The email address of the user
     type: string
     format: email
+    example: test@test.com
   password:
     description: The secure password of the user. must be greater than 8 characters long
     type: string
-  email:
-    description: the email address of the user.
-    type: string
-    example: test@test.com
   dateOfBirth:
     description: user's date of birth
     type: date
@@ -23,16 +20,21 @@ properties:
   phone:
     description: phone number of the user, use for verifiication.
     type: string
-    example: ysf684sgd76g8r
+    example: (+237 675832107)
   profilePicture:
     description: user's image
-    type: object
+    type: string
+    format: url 
   courses:
     description: user's courses
     type: array
     example:
-      - ongoingCourses: ["Web development","Python"]
-      - newCourses: ["Javascript","Mysql"]
+      - ongoingCourses: 
+        - Web development
+        - Python
+      - newCourses: 
+        - Mysql
+        - Java
   userType:
     - student:
         description: a user who is there to take a courses
