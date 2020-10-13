@@ -17,5 +17,13 @@ properties:
   lessonnotes:
     description: notes of the lesson  
     type: string
-
+  videoduration:
+    description: The time in seconds/minutes/hours the video will play for.
+    type: interger
+  dateCreated: 
+    descriotion: The date on which the lesson was created.
+    type: interger
+  tutor'sname: 
+    description: The name of the person teaching the lesson
+    type: string
     
