@@ -4,6 +4,15 @@ required:
   - username
   - password
 properties:
+  id:
+    description: The unique identifier of a user
+    type: string
+  firstName:
+    description: The first name of the user
+    type: string
+  lastName:
+    description: The last name of the user
+    type: string
   username:
     description: The email address of the user
     type: string
@@ -12,16 +21,16 @@ properties:
   password:
     description: The secure password of the user. must be greater than 8 characters long
     type: string
-  dateOfBirth:
+  bornOn:
     description: user's date of birth
     type: date
     example: 17/02/2003
   phone:
     description: phone number of the user, use for verifiication.
     type: string
-    example: (+237 675832107)
+    example: +237 675832107
   profilePicture:
-    description: user's image
+    description: a link to the user's prifile picture
     type: string
     format: url 
   courses:
