@@ -1,0 +1,28 @@
+title: Module
+type: object
+required:
+  - title
+  - lessons
+properties:
+  id:
+    description: The unique identifier of a group of lessons
+    type: string
+    format: UUID
+  summary:
+    description: A brief summary or description of the group of lessons
+    type: string
+  title:
+    description: The title of a group of lessons
+    type: string
+  lessons:
+    description: An array that references to lessons
+    type: array
+    items:
+        $ref: "schemas/Lesson.yaml"
+  objectives:
+    description: The learning goals of a group of lessons
+    type: string
+
+
+
+    
