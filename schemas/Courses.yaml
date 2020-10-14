@@ -1,0 +1,11 @@
+title: Courses
+type: array
+properties:
+  ongoingCourses:
+    - Web development
+    - Python
+    - Groovy
+  newCourses:
+    - Graphic Designing
+    - Java
+    - Mysql
