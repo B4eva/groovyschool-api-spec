@@ -1,11 +1,7 @@
 title: Courses
 type: array
 properties:
-  ongoingCourses:
-    - Web development
-    - Python
-    - Groovy
-  newCourses:
-    - Graphic Designing
-    - Java
-    - Mysql
+  id:
+    description: The unique identifier of a course
+    type: string
+    format: UUID
