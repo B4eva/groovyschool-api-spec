@@ -27,7 +27,7 @@ properties:
   courses:
     type: array
     items: 
-      $ref: "schemas/Courses.yaml"
+      $ref: "Courses.yaml"
   userType:
     type: string
     enum:
