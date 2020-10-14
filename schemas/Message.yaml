@@ -1,9 +1,9 @@
 title: Message
 type: object
 required:
-  - Sender email address
-  - Sender Name
-  - Message body
+  - senderEmailaddress
+  - senderName
+  - messageBody
 properties:
   Name:
     description: The name of the user
@@ -11,14 +11,14 @@ properties:
   Subject:
     description: The subject of the message
     type: string
-  Sender email address:
+  senderEmailaddress:
     description: The email address of the user
     type: string
     format: email
-  Message body:
+  messageBody:
     description: Full description of the message
     type: string
-  Recipient(s) email:
+  recipient(s)Email:
     description: Email address(es) of recipeint(s)
     type: string
     format: email
@@ -26,3 +26,9 @@ properties:
     description: Date and time message is sent.
     type: string
     format: date/time
+  Status:
+    type: string
+    enum:
+      - New
+      - Read
+      - Archieved
