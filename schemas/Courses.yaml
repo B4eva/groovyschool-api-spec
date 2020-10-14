@@ -1,0 +1,7 @@
+title: Courses
+type: array
+properties:
+  id:
+    description: The unique identifier of a course
+    type: string
+    format: UUID

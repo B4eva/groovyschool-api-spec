@@ -4,17 +4,43 @@ required:
   - email address
   - password
 properties:
-  Fistname:
-    description: The Fist name of the user
+  id:
+    description: The unique identifier of a user
     type: string
-  Lastname:
-    description: The Last name of the user
+  firstName:
+    description: The first name of the user
     type: string
-  email address:
+  lastName:
+    description: The last name of the user
+    type: string
+  username:
     description: The email address of the user
     type: string
     format: email
+    example: test@test.com
   password:
     description: The secure password of the user. must be greater than 8 characters long
     type: string
-    
+  bornOn:
+    description: user's date of birth
+    type: date
+    example: 17/02/2003
+  phone:
+    description: phone number of the user, use for verifiication.
+    type: string
+    example: +237 675832107
+  profilePicture:
+    description: a link to the user's prifile picture
+    type: string
+    format: url 
+  courses:
+    type: array
+    items: 
+      $ref: "Courses.yaml"
+  userType:
+    type: string
+    enum:
+      - STUDENT
+      - MENTOR
+      - INSTRUCTOR
+    default: STUDENT

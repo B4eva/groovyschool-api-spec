@@ -1,0 +1,69 @@
+title: Lesson
+type: object
+required:
+  - id
+  - title
+  - instructors
+properties:
+  id:
+    description: The unique identifier of a lesson
+    type: string
+    format: UUID
+  status:
+    type: string
+    enum:
+      - DRAFT
+      - PUBLISHED 
+      - ARCHIVED
+    default: DRAFT
+  summary:
+    description: A brief summary or description of the lesson
+    type: string
+  title:
+    description: The title of a lesson
+    type: string
+  thumbnail:
+    description: The Url of a lesson thumbnail image
+    type: string
+  objectives:
+    description: The learning goals of a lesson
+    type: string
+  quiz:
+    description: An array of questions
+    type: array
+    items:
+      $ref: "schemas/Question.yaml"
+  video:
+    description: URL of lesson video 
+    type: string
+  notes:
+    description: Notes of the lesson 
+    type: string
+  duration:
+    description: The duration of the course.
+    type: number
+  createdOn: 
+    description: The date on which the lesson was created.
+    type: date
+  publishedOn: 
+    description: The date on which the lesson was published.
+    type: date
+  instructors: 
+    description: An array refernces to instructors
+    type: array
+    items:
+      $ref: "schemas/User.yaml"
+  resources:
+    description: Array of links to external resources for the lesson.
+    type: array
+    items:
+      $ref: "schemas/CourseResource.yaml"
+  comments:
+    description: An array of comments
+    type: array
+    items:
+      $ref: "schemas/Comment.yaml"
+
+
+
+    
