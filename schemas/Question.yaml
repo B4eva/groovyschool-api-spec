@@ -1,0 +1,31 @@
+title: Question
+type: object
+required:
+  - id
+  - questionType
+  - prompt
+properties:
+  id:
+    description: The unique identifier of a question
+    type: string
+    format: UUID
+  questionType:
+    description:  indicates the format of question being given that is "short text answer"or"mcq"
+    type: string
+    enum: 
+      - TEXT
+      - MCQ
+    default: MCQ
+  image:
+    description: The Url of an image used in question
+    type: string
+  rightAnswer:
+    description: The answer that has been accepted as best
+    type: string
+  answerChoices:
+    description: list of suggested answer for questions
+    type: array
+  prompt: 
+    description: The question text
+    type: string
+    example: "Who invented the first computer?"
