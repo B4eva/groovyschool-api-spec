@@ -1,0 +1,34 @@
+title: Message
+type: object
+required:
+  - sender
+  - recipients
+  - body
+properties:
+  id:
+    description: The unique id of a message
+    type: string
+    format: UUID
+  subject:
+    description: The subject of the message
+    type: string
+  sender:
+    description: The email address of the user
+    type: string
+    format: email
+  body:
+    description: Full body of the message
+    type: string
+  recipients:
+    description: Email address(es) of recipeint(s)
+    type: array
+  date:
+    description: Date and time message is sent.
+    type: string
+    format: date
+  status:
+    type: string
+    enum:
+      - NEW
+      - READ
+      - ARCHIVED
