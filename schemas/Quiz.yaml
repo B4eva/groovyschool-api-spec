@@ -3,15 +3,15 @@ type: object
 required:
   - list of questions
 properties:
-  Questions:
-    description: Questions that makeup the Quiz
+  questions:
+    description: questions that makeup the Quiz
     type: list
-    Question:
-      description: Phrase that demands a correct answer to
-      type: string
-      Answers:
-        description: Group of responses to a question
-        type: string
-      Correct Answer:
-        description: Correct response to a question
-        type: string
+  questionPrompt:
+    description: text of the question
+    type: string
+  answers:
+    description: group of responses to a question
+    type: string
+  correctAnswer:
+    description: correct response to a question
+    type: string
