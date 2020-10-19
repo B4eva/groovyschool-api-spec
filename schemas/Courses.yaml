@@ -1,7 +1,43 @@
-title: Courses
-type: array
+title: Course
+type: object
 properties:
   id:
     description: The unique identifier of a course
     type: string
     format: UUID
+  title:
+    description: Title of a course(Course name)
+    type: string
+  thumbnail:
+    description: Course image url
+    type: string
+  instructors:
+    description: Instructor(s) of a course
+    type: array
+    items:
+      $ref: "User.yaml"
+  messages:
+    type: array
+    items:
+      $ref: "Message.yaml"
+  modules:
+    type: array
+    items:
+      $ref: "Module.yaml"
+  createdOn:
+    description: Date a course is created
+    type: date
+  publishedOn:
+    description: Date a course is posted online
+    type: date
+  status:
+    type: string
+    enum:
+      - CREATED
+      - PUBLISHED
+      - ARCHIVED
+  mentors:
+    description: Mentor(s) for a course
+    type: array
+    items:
+      $ref: "User.yaml"
