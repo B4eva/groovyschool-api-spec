@@ -5,3 +5,38 @@ properties:
     description: The unique identifier of a course
     type: string
     format: UUID
+  title:
+    description: Title of a course(Course name)
+    type: string
+  instructor:
+    description: Instructor(s) of a course
+    type: string
+  numberofstudents:
+    description: Number of students enrolled for a course
+    type: integer
+  rating:
+    description: Rating a the course
+    type: integer
+  messages:
+    type: string
+    enum:
+      - COMMENTS
+      - QUESTIONS
+      - DISCUSSIONS
+  listofmodules:
+    type: string
+  datecreated:
+    description: Date a course is created
+    type: date
+  datepublished:
+    description: Date a course is posted online
+    type: date
+  status:
+    type: string
+    enum:
+      - CREATED
+      - PUBLISHED
+      - ARCHIVED
+  mentors:
+    description: Mentor(s) for a course
+    type: array
