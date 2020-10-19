@@ -1,5 +1,5 @@
-title: Courses
-type: array
+title: Course
+type: object
 properties:
   id:
     description: The unique identifier of a course
@@ -8,27 +8,26 @@ properties:
   title:
     description: Title of a course(Course name)
     type: string
-  instructor:
+  thumbnail:
+    description: Course image url
+    type: string
+  instructors:
     description: Instructor(s) of a course
-    type: string
-  numberofstudents:
-    description: Number of students enrolled for a course
-    type: integer
-  rating:
-    description: Rating a the course
-    type: integer
+    type: array
+    items:
+      $ref: "User.yaml"
   messages:
-    type: string
-    enum:
-      - COMMENTS
-      - QUESTIONS
-      - DISCUSSIONS
-  listofmodules:
-    type: string
-  datecreated:
+    type: array
+    items:
+      $ref: "Message.yaml"
+  modules:
+    type: array
+    items:
+      $ref: "Module.yaml"
+  createdOn:
     description: Date a course is created
     type: date
-  datepublished:
+  publishedOn:
     description: Date a course is posted online
     type: date
   status:
@@ -40,3 +39,5 @@ properties:
   mentors:
     description: Mentor(s) for a course
     type: array
+    items:
+      $ref: "User.yaml"
