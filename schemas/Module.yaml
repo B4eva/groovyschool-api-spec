@@ -17,8 +17,8 @@ properties:
   lessons:
     description: An array that references to lessons
     type: array
-    items:
-        $ref: "schemas/Lesson.yaml"
+    items: {}
+        
   objectives:
     description: The learning goals of a group of lessons
     type: string

@@ -16,7 +16,7 @@ paths:
             application/json:
               schema:
                 $ref: 'schemas/User.yaml'
-    responses:
+      responses:
         '200':
           description: ok
         '405':
@@ -40,24 +40,6 @@ paths:
             description: User not found
 
   /login:
-      # header:    
-      #   {
-      #   "alg": "HS256",
-      #   "typ": "JWT"
-      #   }
-      # payload:
-      #     {
-      #       "sub": "password",
-      #       "name": "usernamehere",
-      #       "email": "email@address.com",
-      #       "iat": 1516239022
-      #     }
-      # signature:
-      #     HMACSHA256(
-      #     base64UrlEncode(header) + "." +
-      #     base64UrlEncode(payload),
-      #     secret_key
-      #     ) 
       post:
         description: login in a user of our system
         operationId: login
@@ -194,7 +176,7 @@ paths:
           content:
             application/json:
               schema: {}
-                # $ref: "#components/responses/405Error"
+               
 
 components: 
   securitySchemes:
