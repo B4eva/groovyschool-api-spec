@@ -1,17 +1,20 @@
 title: Quiz
 type: object
 required:
-  - list of questions
+  - questions
 properties:
+  id:
+    description: unique id of the quiz
+    type: string
+    format: UUID
   questions:
     description: questions that makeup the Quiz
-    type: list
-  questionPrompt:
-    description: text of the question
+    type: array
+    items: "Question.yaml"
+  status:
     type: string
-  answers:
-    description: group of responses to a question
-    type: string
-  correctAnswer:
-    description: correct response to a question
-    type: string
+    enum:
+      - DRAFT
+      - PUBLISHED
+      - ARCHIVED
+    default: DRAFT
