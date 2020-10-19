@@ -1,0 +1,20 @@
+title: Quiz
+type: object
+required:
+  - questions
+properties:
+  id:
+    description: unique id of the quiz
+    type: string
+    format: UUID
+  questions:
+    description: questions that makeup the Quiz
+    type: array
+    items: "Question.yaml"
+  status:
+    type: string
+    enum:
+      - DRAFT
+      - PUBLISHED
+      - ARCHIVED
+    default: DRAFT
